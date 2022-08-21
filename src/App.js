@@ -1,15 +1,21 @@
-import React, {useState, useEffect} from "react";
-import axios from 'axios'
+import React from "react";
+import Navbar from './Navbar'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import Home from './Home'
+import About from './about'
+import Dashboard from './Dashboard';
 function App(){
-  const [data,setData] = useState([])
-  useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then(
-      response => setData(response.data)
-    )
-  },[])
   return (
     <div>
-      {data.map(items => <li key = {items.id}>{items.title}</li>)}
+      <h1>CREATING MULTIPAGE APPLICATIONS</h1>
+      <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path = "Home" element = {<Home/>} />
+        <Route path = "About" element = {<About/>} />
+        <Route path = "Dashboard" element = {<Dashboard/>} />
+      </Routes>
+      </BrowserRouter>
     </div>
   )
 
