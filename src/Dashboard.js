@@ -1,12 +1,10 @@
 import React from "react";
 
-function dashboard(){
+function dashboard({match}){
     return(
         <div>
             <center>
-                <h1>
-                    Hii I am from dashboard page
-                </h1>
+                <h1>Dashboard profile name is: {match.params.name}</h1>
             </center>
         </div>
     )
