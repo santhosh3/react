@@ -1,6 +1,6 @@
 import React from "react";
 
-function s(){
+function dashboard(){
     return(
         <div>
             <center>
@@ -12,4 +12,4 @@ function s(){
     )
 }
 
-export default s
+export default dashboard
