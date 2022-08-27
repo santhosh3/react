@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import Text from "./test";
 
 function App() {
+  const [data,setData] = useState({
+    name : "raju",
+    Age : 23
+  })
+  const {name,Age} = data
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <center>
+        <Text name = {name} and Age = {Age}/>
+      </center>
     </div>
   );
 }
