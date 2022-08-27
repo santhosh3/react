@@ -1,16 +1,20 @@
 import React,{useState} from "react";
-import Img from "./img";
-import './App.css';
-
+import './index.css'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Dashboard from "./Dashboard";
+import Home from "./Home";
+import About from "./About";
 function App() {
-  const arr = [
-    "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YW5pbWFsfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-    "https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2014/09/16/20/52/gorilla-448731__340.jpg"
-  ]  
+
   return (
-    <div style={{display:"flex"}}>
-      {arr.map((item,index) => <Img key = {index} src={item} />)}
+    <div>
+      <BrowserRouter>
+       <Routes>
+        <Route path = '/' element={<Home/>}/>
+        <Route path = '/Dashboard/:name' element={<Dashboard/>}/>
+        <Route path = '/About' element={<About/>} />
+       </Routes>
+      </BrowserRouter>
     </div>
   )
 }
