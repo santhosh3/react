@@ -1,18 +1,17 @@
 import React from 'react'
-import './index.css'
 import {Link} from 'react-router-dom'
+import './INDEX.css';
 
-function Home() {
-  let user = 'John'
+function home() {
   return (
     <div>
-        <center>
-            <h2>Welcome to Home page</h2>
-            <Link to={`/Dashboard/${user}`} className='Link'>Dashboard</Link><br /><br />
-            <Link to='/About' className='Link'>About</Link>
-        </center>
+      <center>
+        <h3>Welcome to Home page</h3>
+        <Link to='/dashboard' className='Link'>Dashboard</Link>
+        <Link to='/about' className='Link'>About</Link>
+      </center>
     </div>
   )
 }
 
-export default Home
+export default home

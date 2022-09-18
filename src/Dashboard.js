@@ -1,19 +1,17 @@
 import React from 'react'
-import './index.css'
 import {Link} from 'react-router-dom'
-import {useParams} from 'react-router-dom'
+import './INDEX.css';
 
-function Dashboard() {
-  let params = useParams()
+function dashboard() {
   return (
     <div>
       <center>
-      <h2>Welcome to Dashboard page</h2><br />
-      <h3>Name : {params.name}</h3>
-      <Link to='/' className='Link'>Back to home</Link>
+        <h3>Welcome to dashboard page</h3>
+        <Link to='/' className='Link'>Home page</Link>
+        <Link to='/about' className='Link'>About</Link>
       </center>
     </div>
   )
 }
 
-export default Dashboard
+export default dashboard
