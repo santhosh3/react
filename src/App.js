@@ -1,20 +1,20 @@
-import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import About from './about'
-import Dashboard from './dashboard'
-import Home from './home'
+import React,{createContext,useState}from 'react'
+import './INDEX.css'
+import ComponentA from './ComponentA'
+import ComponentB from './ComponentB'
 
-function App() {
+export const store = createContext();
+
+const App = () => {
+  const [data,setData] = useState(0);
   return (
-    <div>
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/dashboard/:name' element={<Dashboard />}/>
-        <Route path='/about' element={<About />}/>
-      </Routes>
-      </BrowserRouter>
-    </div>
+    <store.Provider value={[data,setData]}>
+      <center>
+        <ComponentA />
+        <ComponentB />
+        <button className="Link" onClick={() => setData(data+1)}>Increment</button>
+      </center>
+    </store.Provider>
   )
 }
 
