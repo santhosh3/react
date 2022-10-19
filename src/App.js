@@ -1,66 +1,49 @@
-// import React from 'react'
-
-// const App = () => {
-//   const names = ["Bruce", "Clark", "Rahul"]
-//   return (
-//    <center>
-//      <div>
-//       {
-//         names.map((name,index) => {return <h2 key={index}>{name}</h2>})
-//       }
-//     </div>
-//    </center>
-//   )
-// }
-
-// export default App
-
-// import React,{useState} from 'react'
-// const App = () => {
-//   const [userName, setuserName] = useState('')
-
-//   const handlerSubmit = (event) => {
-//     event.preventDefault();
-//     alert(`Form data is ${userName}`)
-//   }
-//   return (
-//     <form onSubmit={handlerSubmit}>
-//       <div>
-//       <label>userName</label>
-//       <input 
-//         type='text'
-//         value={userName}
-//         onChange={(event) => setuserName(event.target.value)}
-//         />
-//       </div>
-//       <button type='submit'>submit</button>
-//     </form>
-//   )
-// }
-//export default App
-
-import React,{useState,useEffect} from "react";
+import React,{useState} from 'react'
 import './App.css'
+import Counter from './Counters'
 
-const App = () => {
-  const [posts, setPosts] = useState([]);
+function App() {
+  const [state, setState] = useState([
+    {id:0,value:0},{id:1,value:0},{id:2,value:0},{id:3,value:0}
+  ])  
+  const Increment = (e) => {
+     const counters = [...state];
+     counters[e].value++
+     setState(counters)
+  }
+  const Decrement = (e) => {
+    const counters = [...state];
+    counters[e].value--
+    setState(counters)
+  }
+  const deleteHandler = (e) => {
+    const counters = state.filter((c) => c.id != e)
+    setState(counters)
+  }
+  const reload = (e) => {
+    window.location.reload();
+  }
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => response.json())
-    .then((data) => setPosts(data))
-    .catch(err => console.log(err))
-  },[]);
-
-  return(
-    <div className="primary">
-      <ul>
-        {
-          posts.map((post) => {
-            return <h1><li key = {post.id}>{post.body}</li></h1>
-          })
-        }
-      </ul>
+  return (
+    <div>
+     <center>
+      <div className='flex'>
+      <div className='Navbar'>cart</div>
+      <div className='Navbar value'>{state.filter(e => e.value > 0).length}</div> 
+      <div className='Navbar'>Items</div>
+      </div>
+      <button className='btn' onClick={reload}>refresh</button><br></br>
+      { 
+        state.map(e => 
+          <div key={e.id}>
+            <span className='element_value'>{e.value > 0?e.value:"Zero"}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button className='btn' onClick={() => Increment(e.id)}>+</button>
+            <button className='btn' onClick={() => Decrement(e.id)}>-</button>
+            <button className='btn' onClick={() => deleteHandler(e.id)}>delete</button>
+          </div>
+          )
+      }
+     </center>
     </div>
   )
 }
