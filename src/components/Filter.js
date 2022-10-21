@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import './style.css'
 
 function Filter() {
   const [countries, setCountries] = useState([])
@@ -21,10 +22,11 @@ function Filter() {
   return (
     <div className='filter-container'>
       <div>
-      <input type='text' placeholder='search for a country'/>
+      <input type='text' className='Filter-component' placeholder='search for a country'/>
       </div>
       <div>
-      <select placeholder='Filter by region'>
+      <select className='filter-region' name='select'>
+            <option value="Filter by region">Filter by region</option>
             <option value="Asia">Asia</option>
             <option value="Europe">Europe</option>
             <option value="North America">China</option>

@@ -20,9 +20,12 @@
 .align-items{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 2em;
-    border: 2px solid black;
+    border: 1px solid rgb(219, 209, 209);
     margin: 10px;
+    box-shadow: 4px 4px #d7d3d3;
+    padding: 0.3em;
 }
 
 .Image{
@@ -44,4 +47,36 @@
     display: flex;
     justify-content: space-between;
     margin: 23px;
+}
+
+.filter-container{
+    border: none;
+    outline: none;
+    padding: 15px;
+}
+.Filter-component{
+    outline: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: inherit;
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: 23px;
+}
+.filter-region{
+    font-family: inherit;
+    padding: 19px 12px 19px 4px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.Nav-right{
+    color: black;
+    font-family: inherit;
+    font-weight: bold;
+}
+.Nav-left{
+    font-family: inherit;
+    font-size: 19px;
 }

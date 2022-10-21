@@ -4,8 +4,8 @@ import './style.css'
 function Navbar() {
   return (
     <div className='align-items'>
-      <div>Where is the world?</div>
-      <div>Dark Theme</div>
+      <div className='Nav-right' >Where is the world?</div>
+      <div className='Nav-left'>Dark Theme</div>
     </div>
   )
 }
