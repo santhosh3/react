@@ -1,15 +1,11 @@
 import React from 'react'
-import Countries from './components/Countries'
-import Navbar from './components/Navbar'
-import Filter from './components/Filter'
+import HomePage from './components/HomePage'
 
 function App() {
 
   return (
     <div>
-      <Navbar/>
-      <Filter/>
-      <Countries />
+      <HomePage />
     </div>
   )
 }
