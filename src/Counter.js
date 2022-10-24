@@ -1,13 +1,12 @@
 import React from 'react'
-import './App.css'
 
-function Counter(props) {
+function Counter({Increment, Decrement, DeleteHandler,item,index}) {
   return (
     <div>
-    {props.value}
-    <button onClick={props.Increment(props.id)}>+</button>
-    <button onClick={props.Decrement(props.id)}>-</button>
-    <button onClick={props.Delete(props.id)}>delete</button>
+      <h1>{item.value}</h1>
+      <button className='btn' onClick={(e) => Increment(index)}>+</button>
+      <button className='btn' onClick={(e) => Decrement(index)}>-</button>
+      <button className='btn' onClick={(e) => DeleteHandler(index)}>Delete</button>
     </div>
   )
 }
